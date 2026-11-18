@@ -8,6 +8,7 @@ import sqlite3
 import tempfile
 import unittest
 import xml.etree.ElementTree as ET
+from contextlib import closing
 from pathlib import Path
 from types import SimpleNamespace as NS
 
@@ -137,12 +138,16 @@ class DataProtection(unittest.TestCase):
     def test_damaged_row_does_not_crash_and_restore_skips_bad_rows(self):
         with tempfile.TemporaryDirectory() as d:
             d = Path(d); s = ProfileStore(d / "a.db"); keep = sample_profile(); s.save(keep)
-            with sqlite3.connect(d / "a.db") as db:
+            with closing(sqlite3.connect(d / "a.db")) as db:      # closed explicitly: Windows cannot delete an open file
                 db.execute("INSERT INTO profiles(id,title,data) VALUES('bad','Bad','{not json')")
+                db.commit()
+            with closing(sqlite3.connect(d / "a.db")) as chk:
+                self.assertEqual(1, chk.execute("SELECT COUNT(*) FROM profiles WHERE id='bad'").fetchone()[0])   # the damaged row exists
             self.assertIsNone(s.load("bad"))
             src = ProfileStore(d / "src.db"); good = CVProfile(full_name="Restored"); src.save(good)
-            with sqlite3.connect(d / "src.db") as db:
+            with closing(sqlite3.connect(d / "src.db")) as db:
                 db.execute("INSERT INTO profiles(id,title,data) VALUES('bad2','Bad','[1,2')")
+                db.commit()
             self.assertEqual(1, s.restore_from(d / "src.db"))
             self.assertEqual("Restored", s.load(good.id).full_name)
             self.assertTrue(list((d / "backups").glob("profiles-*.sqlite3")))     # safety backup taken before merging

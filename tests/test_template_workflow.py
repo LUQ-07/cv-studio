@@ -106,7 +106,7 @@ class Gallery(unittest.TestCase):
         self.w._require_premium = lambda f: None
 
     def tearDown(self):
-        self.w.iap.shutdown(); self.tmp.cleanup()
+        self.w.iap.shutdown(); self.w.tmp.cleanup(); self.tmp.cleanup()
 
     def use_buttons(self): return [b for b in RecBtn.created[-400:] if b.text == "USE THIS TEMPLATE"][-30:]
     def fav_buttons(self): return [b for b in RecBtn.created[-400:] if b.text in ("ADD TO FAVORITES", "★ REMOVE FAVORITE")][-30:]
