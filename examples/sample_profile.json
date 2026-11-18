@@ -1,0 +1,106 @@
+{
+  "id": "395dac4d7880",
+  "title": "Alex Morgan — Product Designer",
+  "full_name": "Alex Morgan",
+  "headline": "Product Designer | UX Research & Design Systems",
+  "email": "alex.morgan@example.com",
+  "phone": "+1 555 010 2040",
+  "location": "Toronto, Canada",
+  "address": "",
+  "photo_path": "",
+  "summary": "Product designer with 5+ years of experience turning complex workflows into clear, accessible digital products. I partner closely with research, engineering, and product teams to ship thoughtful experiences.",
+  "experience": [
+    {
+      "role": "Senior Product Designer",
+      "company": "Northstar Labs",
+      "location": "Toronto, Canada",
+      "dates": "2022 — Present",
+      "description": "Led discovery and design for a customer onboarding redesign, improving activation by 18%. Built a shared component library used by four product teams."
+    },
+    {
+      "role": "Product Designer",
+      "company": "Brightside Studio",
+      "location": "Remote",
+      "dates": "2019 — 2022",
+      "description": "Designed responsive web experiences for early-stage teams. Facilitated usability sessions and translated findings into clear product improvements."
+    }
+  ],
+  "education": [
+    {
+      "degree": "B.Des. Interaction Design",
+      "school": "Toronto Metropolitan University",
+      "location": "Toronto",
+      "dates": "2015 — 2019",
+      "description": "Graduated with distinction."
+    }
+  ],
+  "skills": [
+    {
+      "name": "Figma",
+      "level": "Advanced"
+    },
+    {
+      "name": "Prototyping",
+      "level": "Advanced"
+    },
+    {
+      "name": "Usability research",
+      "level": "Intermediate"
+    },
+    {
+      "name": "Design systems",
+      "level": "Advanced"
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Accessibility for Designers",
+      "issuer": "Interaction Design Foundation",
+      "date": "2023",
+      "url": ""
+    }
+  ],
+  "languages": [
+    {
+      "name": "English",
+      "level": "Native"
+    },
+    {
+      "name": "French",
+      "level": "Professional"
+    }
+  ],
+  "projects": [
+    {
+      "name": "OpenCity Service Map",
+      "dates": "2023",
+      "description": "A volunteer project mapping accessible community services.",
+      "url": "https://example.com/opencity"
+    }
+  ],
+  "links": [
+    {
+      "label": "Portfolio",
+      "url": "https://example.com/alex"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://linkedin.com/in/example"
+    }
+  ],
+  "awards": [],
+  "volunteer": [],
+  "custom_sections": [],
+  "template_id": "modern_summit",
+  "accent_color": "#5B63E6",
+  "font_size": 10,
+  "show_photo": true,
+  "page_size": "A4",
+  "target_role": "",
+  "target_company": "",
+  "hiring_manager": "",
+  "job_description": "",
+  "why_role": "",
+  "relevant_contribution": "",
+  "cover_letter_text": ""
+}

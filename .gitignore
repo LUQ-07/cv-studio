@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.venv-build/
+venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Build output
+build/
+dist/
+*.zip
+
+# Your own data and exports (never commit CVs)
+*.sqlite3
+*.cvbackup
+home-preview.png
+templates-preview.png
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,29 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    # The Windows job is new: if it fails for a platform-specific reason, fix it and then remove this line.
+    continue-on-error: ${{ matrix.os == 'windows-latest' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install poppler (PDF text extraction used by some tests)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - name: Install dependencies (the engine tests do not need Qt)
+        run: python -m pip install "reportlab>=4.4,<5" "python-docx>=1.2,<2" "Pillow>=11,<14"
+      - name: Run tests
+        run: python -m unittest discover -s tests -v
